@@ -46,9 +46,9 @@ jobs:
     nugetConfig: nuget.config
     externalFeedCredentials: 'UnMango GitHub NuGet'
     artifactName: UnMango.Rest
-    
+
     preRestore:
-    - script: dotnet tool restore
+    - script: dotnet tool restore --ignore-failed-sources
       displayName: Restore .NET tools
 
     postBuild:
