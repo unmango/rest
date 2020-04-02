@@ -46,10 +46,16 @@ jobs:
     nugetConfig: nuget.config
     externalFeedCredentials: 'UnMango GitHub NuGet'
     artifactName: UnMango.Rest
+    
+    preRestore:
+    - script: dotnet tool restore
+      displayName: Restore .NET tools
+
     postBuild:
     - template: /steps/dotnet/test.yml
       parameters:
         buildProjects: false
+        installReportGenerator: false
 
 - template: /jobs/nuget/push.yml@templates
   parameters:
