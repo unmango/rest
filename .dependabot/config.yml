@@ -10,7 +10,7 @@ update_configs:
       update_type: semver:minor
 
 - package_manager: dotnet:nuget
-  directory: "/test/UnMango.Rest.Test"
+  directory: "/test/UnMango.Rest.Tests"
   update_schedule: live
   automerged_updates:
   - match:
