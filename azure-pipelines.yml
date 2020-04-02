@@ -22,6 +22,8 @@ pr:
     - .dependabot/*
     - .editorconfig
 
+pool: Linux
+
 resources:
   repositories:
   - repository: templates
@@ -42,7 +44,8 @@ jobs:
     pool: Linux
     projects: src/**/*.csproj
     nugetConfig: nuget.config
-    artifactName: $(PackageName)
+    externalFeedCredentials: 'UnMango GitHub NuGet'
+    artifactName: UnMango.Rest
     postBuild:
     - template: /steps/dotnet/test.yml
       parameters:
@@ -53,6 +56,6 @@ jobs:
     pool: Linux
     environment: GitHub
     feed: 'UnMango GitHub NuGet'
-    artifact: $(PackageName)
+    artifact: UnMango.Rest
     dependsOn: pack_dotnet_nuget_package
     condition: or( contains(variables['Build.SourceBranch'], 'master'), contains(variables['Build.SourceBranch'], 'release') )
