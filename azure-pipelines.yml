@@ -43,10 +43,10 @@ jobs:
     projects: src/**/*.csproj
     nugetConfig: nuget.config
     artifactName: $(PackageName)
-    postBuild:
-    - template: /steps/dotnet/test.yml@templates
-      parameters:
-        buildProjects: false
+    # postBuild:
+    # - template: /steps/dotnet/test.yml@templates
+    #   parameters:
+    #     buildProjects: false
 
 - template: /jobs/nuget/push.yml@templates
   parameters:
