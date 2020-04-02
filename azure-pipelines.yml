@@ -1,0 +1,67 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - release/*
+  paths:
+    include:
+    - src/*
+    - tool/*
+    - azure-pipelines.yml
+
+pr:
+  branches:
+    include:
+    - master
+    - release/*
+  paths:
+    exclude:
+    - docs/*
+    - README.md
+    - .dependabot/*
+    - .editorconfig
+
+pool: Linux
+
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    name: unmango/azure-pipelines-templates
+    endpoint: unmango
+
+variables:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  Pool: Linux
+  BuildConfiguration: Release
+  PackageName: Packages
+  CI: true
+
+jobs:
+- template: /jobs/dotnet/nuget-package.yml@templates
+  parameters:
+    pool: Linux
+    projects: src/**/*.csproj
+    nugetConfig: nuget.config
+    externalFeedCredentials: 'UnMango GitHub NuGet'
+    artifactName: UnMango.Rest
+
+    preRestore:
+    - script: dotnet tool restore --ignore-failed-sources
+      displayName: Restore .NET tools
+
+    postBuild:
+    - template: /steps/dotnet/test.yml
+      parameters:
+        buildProjects: false
+        installReportGenerator: false
+
+- template: /jobs/nuget/push.yml@templates
+  parameters:
+    pool: Linux
+    environment: GitHub
+    feed: 'UnMango GitHub NuGet'
+    artifact: UnMango.Rest
+    dependsOn: pack_dotnet_nuget_package
+    condition: or( contains(variables['Build.SourceBranch'], 'master'), contains(variables['Build.SourceBranch'], 'release') )
