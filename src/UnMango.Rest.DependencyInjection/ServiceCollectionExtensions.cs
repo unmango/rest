@@ -19,9 +19,13 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
+            // External services
             services.AddLogging();
             services.AddOptions();
             services.AddHttpClient();
+
+            // External configuration
+            services.AddOptions<RestClientOptions>();
 
             return services;
         }
