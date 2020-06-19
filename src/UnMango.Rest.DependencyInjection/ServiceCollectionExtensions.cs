@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnMango.Rest;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -9,9 +10,18 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds the <see cref="IRestClientFactory"/> and related serviced to the <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddRestClient(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
+
+            services.AddLogging();
+            services.AddOptions();
+            services.AddHttpClient();
 
             return services;
         }
