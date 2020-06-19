@@ -1,5 +1,8 @@
 ﻿namespace UnMango.Rest
 {
+    /// <summary>
+    /// Abstraction for creating <see cref="IRestClient"/>s.
+    /// </summary>
     public interface IRestClientFactory
     {
         /// <summary>
