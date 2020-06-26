@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using UnMango.Rest;
+using UnMango.Rest.DependencyInjection;
+using UnMango.Rest.Internal;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -27,7 +27,21 @@ namespace Microsoft.Extensions.DependencyInjection
             // External configuration
             services.AddOptions<RestClientOptions>();
 
+            // Library types
+            services.AddTransient<IRestClientFactory, DefaultRestClientFactory>();
+            services.AddTransient(CreateDefaultRestClient);
+
             return services;
+        }
+
+        public static IRestClientBuilder AddRestClient(this IServiceCollection services, string name)
+        {
+            return new RestClientBuilder(services.AddRestClient().AddHttpClient(name));
+        }
+
+        private static IRestClient CreateDefaultRestClient(IServiceProvider services)
+        {
+            return services.GetRequiredService<IRestClientFactory>().Create();
         }
     }
 }

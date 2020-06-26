@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using Microsoft.Extensions.Options;
 
 namespace UnMango.Rest.Internal
@@ -22,7 +21,7 @@ namespace UnMango.Rest.Internal
             var client = _clientFactory.CreateClient(name);
             var options = _optionsMonitor.Get(name);
 
-            throw new NotImplementedException();
+            return new RestClient(client, options.ClientSerializers[name]);
         }
     }
 }
