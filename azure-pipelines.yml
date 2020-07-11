@@ -43,7 +43,7 @@ jobs:
   parameters:
     pool: Linux
     projects: src/**/*.csproj
-    nugetConfig: nuget.config
+    nugetConfig: NuGet.Config
     externalFeedCredentials: 'UnMango GitHub NuGet'
     artifactName: UnMango.Rest
 
@@ -64,4 +64,8 @@ jobs:
     feed: 'UnMango GitHub NuGet'
     artifact: UnMango.Rest
     dependsOn: pack_dotnet_nuget_package
-    condition: or( contains(variables['Build.SourceBranch'], 'master'), contains(variables['Build.SourceBranch'], 'release') )
+    condition: |
+      or(
+        contains(variables['Build.SourceBranch'], 'master'),
+        contains(variables['Build.SourceBranch'], 'release')
+      )
