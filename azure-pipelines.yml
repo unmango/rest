@@ -41,6 +41,7 @@ jobs:
     postBuild:
     - template: /steps/dotnet/test.yml
       parameters:
+        projects: '**/test/**/*.csproj'
         buildProjects: false
         installReportGenerator: false
 
