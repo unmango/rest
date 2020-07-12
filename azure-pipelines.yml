@@ -4,23 +4,10 @@ trigger:
     include:
     - master
     - release/*
-  paths:
-    include:
-    - src/*
-    - tool/*
-    - azure-pipelines.yml
 
 pr:
-  branches:
-    include:
-    - master
-    - release/*
-  paths:
-    exclude:
-    - docs/*
-    - README.md
-    - .dependabot/*
-    - .editorconfig
+- master
+- release/*
 
 pool: Linux
 
