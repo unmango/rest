@@ -33,6 +33,14 @@ namespace UnMango.Rest
             QueryParameters = new Dictionary<string, string>();
         }
 
+        /// <summary>
+        /// Initializes a new instance of a <see cref="RestRequest"/> that will use
+        /// <paramref name="client"/> to execute a <paramref name="method"/> request
+        /// with <paramref name="queryParameters"/> as parameters.
+        /// </summary>
+        /// <param name="client">The <see cref="IRestClient"/> to use to execute the request.</param>
+        /// <param name="method">The <see cref="HttpMethod"/> the request will use.</param>
+        /// <param name="queryParameters">The query parameters to send with the request.</param>
         public RestRequest(
             IRestClient client,
             HttpMethod method,
