@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Moq;
@@ -22,6 +23,12 @@ namespace UnMango.Rest.Tests
             await _request.Object.ExecuteAsync();
 
             _client.Verify(x => x.SendAsync(_request.Object, It.IsAny<CancellationToken>()));
+        }
+
+        [Fact]
+        public Task Execute_ThrowsWhenRequestIsNull()
+        {
+            return Assert.ThrowsAsync<ArgumentNullException>(() => ((IRestRequest)null!).ExecuteAsync());
         }
     }
 }
