@@ -80,5 +80,11 @@ namespace UnMango.Rest.Tests
             
             Assert.Throws<ArgumentNullException>(() => new RestRequest(null!, HttpMethod.Get, query));
         }
+
+        [Fact]
+        public void ClientMethodParamCtor_ThrowsWhenParamsAreNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => new RestRequest(_client.Object, HttpMethod.Get, null!));
+        }
     }
 }

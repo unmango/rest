@@ -47,6 +47,8 @@ namespace UnMango.Rest
             IEnumerable<KeyValuePair<string, string>> queryParameters)
             : this(client, method)
         {
+            if (queryParameters == null) throw new ArgumentNullException(nameof(queryParameters));
+            
             QueryParameters = new Dictionary<string, string>(queryParameters.ToDictionary());
         }
         
