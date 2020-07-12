@@ -1,4 +1,0 @@
-namespace UnMango.Rest.Tests
-{
-
-}
