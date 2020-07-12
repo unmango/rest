@@ -56,7 +56,7 @@ namespace UnMango.Rest
         public IRestClient Client { get; }
 
         /// <inheritdoc />
-        public HttpMethod? Method { get; } = null;
+        public HttpMethod? Method { get; }
 
         /// <inheritdoc />
         public IReadOnlyDictionary<string, string> QueryParameters { get; }
