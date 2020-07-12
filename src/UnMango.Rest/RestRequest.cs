@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net.Http;
+using UnMango.Rest.Internal;
 
 namespace UnMango.Rest
 {
@@ -32,6 +32,16 @@ namespace UnMango.Rest
             Client = client ?? throw new ArgumentNullException(nameof(client));
             Method = method;
             QueryParameters = new Dictionary<string, string>();
+        }
+
+        public RestRequest(
+            IRestClient client,
+            HttpMethod method,
+            IEnumerable<KeyValuePair<string, string>> queryParameters)
+        {
+            Client = client ?? throw new ArgumentNullException(nameof(client));
+            Method = method;
+            QueryParameters = new Dictionary<string, string>(queryParameters.ToDictionary());
         }
         
         /// <inheritdoc />
