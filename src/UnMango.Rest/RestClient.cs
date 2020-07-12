@@ -8,7 +8,7 @@ namespace UnMango.Rest
     
     public static class RestClient
     {
-        public static IRestClient Create(HttpClient client, ISerializerCollection? serializers)
+        public static IRestClient Create(HttpClient client, ISerializerCollection? serializers = null)
         {
             if (client == null) throw new ArgumentNullException(nameof(client));
             serializers ??= SerializerCollection.Instance;
