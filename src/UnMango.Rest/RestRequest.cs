@@ -6,7 +6,7 @@ using UnMango.Rest.Internal;
 namespace UnMango.Rest
 {
     /// <summary>
-    /// A REST request.
+    /// Represents a REST request.
     /// </summary>
     public sealed class RestRequest : IRestRequest
     {
