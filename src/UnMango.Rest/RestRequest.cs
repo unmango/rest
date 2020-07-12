@@ -27,9 +27,8 @@ namespace UnMango.Rest
         /// </summary>
         /// <param name="client">The <see cref="IRestClient"/> to use to execute the request.</param>
         /// <param name="method">The <see cref="HttpMethod"/> the request will use.</param>
-        public RestRequest(IRestClient client, HttpMethod method)
+        public RestRequest(IRestClient client, HttpMethod method) : this(client)
         {
-            Client = client ?? throw new ArgumentNullException(nameof(client));
             Method = method;
             QueryParameters = new Dictionary<string, string>();
         }
@@ -38,9 +37,8 @@ namespace UnMango.Rest
             IRestClient client,
             HttpMethod method,
             IEnumerable<KeyValuePair<string, string>> queryParameters)
+            : this(client, method)
         {
-            Client = client ?? throw new ArgumentNullException(nameof(client));
-            Method = method;
             QueryParameters = new Dictionary<string, string>(queryParameters.ToDictionary());
         }
         
