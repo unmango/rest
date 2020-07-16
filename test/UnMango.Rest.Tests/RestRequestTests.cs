@@ -105,7 +105,7 @@ namespace UnMango.Rest.Tests
             // Act
             var request = new RestRequest(_client.Object, HttpMethod.Get, query, str);
 
-            // Assert            
+            // Assert
             Assert.NotNull(request.Uri);
             Assert.Equal(str, request.Uri);
         }
@@ -120,7 +120,7 @@ namespace UnMango.Rest.Tests
             // Act
             var request = new RestRequest(null!, HttpMethod.Get, query, str);
 
-            // Assert            
+            // Assert
             Assert.Null(request.Client);
         }
     }
