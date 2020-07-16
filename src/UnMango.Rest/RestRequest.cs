@@ -60,5 +60,8 @@ namespace UnMango.Rest
 
         /// <inheritdoc />
         public IReadOnlyDictionary<string, string> QueryParameters { get; }
+
+        /// <inheritdoc />
+        public string Uri { get; }
     }
 }
