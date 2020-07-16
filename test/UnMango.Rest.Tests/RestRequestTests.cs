@@ -52,11 +52,14 @@ namespace UnMango.Rest.Tests
         [Fact]
         public void ClientMethodParamCtor_InitializesQueryParams()
         {
+            // Arrange
             const string key = "key", value = "value";
             var query = new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>(key, value) };
 
+            // Act
             var request = new RestRequest(_client.Object, HttpMethod.Get, query);
 
+            // Assert
             Assert.NotNull(request.QueryParameters);
             Assert.Contains(
                 request.QueryParameters,
