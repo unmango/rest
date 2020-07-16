@@ -85,5 +85,43 @@ namespace UnMango.Rest.Tests
         {
             Assert.Throws<ArgumentNullException>(() => new RestRequest(_client.Object, HttpMethod.Get, null!));
         }
+
+        [Fact]
+        public void ClientMethodParamUriCtor_ThrowsWhenUriIsNull()
+        {
+            var query = new Dictionary<string, string>();
+
+            Assert.Throws<ArgumentNullException>(
+                () => new RestRequest(_client.Object, HttpMethod.Get, query, null!));
+        }
+
+        [Fact]
+        public void ClientMethodParamUriCtor_InitializesUri()
+        {
+            // Arrange
+            var query = new Dictionary<string, string>();
+            string str = "string";
+
+            // Act
+            var request = new RestRequest(_client.Object, HttpMethod.Get, query, str);
+
+            // Assert            
+            Assert.NotNull(request.Uri);
+            Assert.Equal(str, request.Uri);
+        }
+
+        [Fact]
+        public void ClientMethodParamUriCtor_InitializesClient()
+        {
+            // Arrange
+            var query = new Dictionary<string, string>();
+            string str = "string";
+
+            // Act
+            var request = new RestRequest(null!, HttpMethod.Get, query, str);
+
+            // Assert            
+            Assert.Null(request.Client);
+        }
     }
 }
