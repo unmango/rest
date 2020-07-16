@@ -25,7 +25,7 @@ namespace UnMango.Rest
         /// Initializes a new instance of a <see cref="RestRequest"/> that will use
         /// <paramref name="client"/> to execute a <paramref name="method"/> request.
         /// </summary>
-        /// <param name="client">The <see cref="IRestClient"/> to use to execute the request.</param>
+        /// /// <param name="client">The <see cref="IRestClient"/> to use to execute the request.</param>
         /// <param name="method">The <see cref="HttpMethod"/> the request will use.</param>
         public RestRequest(IRestClient client, HttpMethod method) : this(client)
         {
@@ -50,6 +50,31 @@ namespace UnMango.Rest
             if (queryParameters == null) throw new ArgumentNullException(nameof(queryParameters));
             
             QueryParameters = new Dictionary<string, string>(queryParameters.ToDictionary());
+        }
+
+        /// <summary>
+        /// Initializes a new instance of a <see cref="RestRequest"/> that will use 
+        /// <paramref name="client">to execute a <paramref name="method"/> request
+        /// with <paramref name="queryParameters"/> as parameters.
+        /// </summary>
+        /// <param name="client">The <see cref="IRestClient"/> to use to execute the request.</param>
+        /// <param name="method">The <see cref="HttpMethod"/> the request will use.</param>
+        /// <param name="queryParameters">The query parameters to send with the request.</param>
+        /// <param name="uri">The URI it calls.</param>
+        public RestRequest(
+            IRestClient client,
+            HttpMethod method,
+            IEnumerable<KeyValuePair<string, string>> queryParameters,
+            string uri)
+            : this(client, method, queryParameters)
+        {
+            if (queryParameters == null) throw new ArgumentNullException(nameof(queryParameters));
+            
+            QueryParameters = new Dictionary<string, string>(queryParameters.ToDictionary());
+
+            if (uri == null) throw new ArgumentNullException(nameof(uri));
+
+            Uri = uri;
         }
         
         /// <inheritdoc />
