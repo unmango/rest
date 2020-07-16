@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace UnMango.Rest
@@ -22,5 +23,10 @@ namespace UnMango.Rest
         /// Gets the query parameters for the request.
         /// </summary>
         IReadOnlyDictionary<string, string> QueryParameters { get; }
+
+        /// <summary>
+        /// Gets the URI for the request.
+        /// </summary>
+        /// string Uri { get; }
     }
 }
