@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 
 namespace UnMango.Rest
@@ -27,6 +26,6 @@ namespace UnMango.Rest
         /// <summary>
         /// Gets the URI for the request.
         /// </summary>
-        /// string Uri { get; }
+        string Uri { get; }
     }
 }
