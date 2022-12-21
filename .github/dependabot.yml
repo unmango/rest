@@ -1,0 +1,22 @@
+version: 1
+
+updates:
+- package-ecosystem: nuget
+  directory: /src/UnMango.Rest
+  schedule:
+    interval: weekly
+
+- package-ecosystem: nuget
+  directory: /src/UnMango.Rest.Abstractions
+  schedule:
+    interval: weekly
+
+- package-ecosystem: nuget
+  directory: /src/UnMango.Rest.DependencyInjection
+  schedule:
+    interval: weekly
+
+- package-ecosystem: nuget
+  directory: /test/UnMango.Rest.Tests
+  schedule:
+    interval: weekly
