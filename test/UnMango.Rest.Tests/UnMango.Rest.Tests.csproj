@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\UnMango.Rest.Abstractions\UnMango.Rest.Abstractions.csproj" />
-    <ProjectReference Include="..\..\src\UnMango.Rest\UnMango.Rest.csproj" />
+    <ProjectReference Include="..\..\src\UnMango.Rest.Backup\UnMango.Rest.Backup.csproj" />
   </ItemGroup>
 
   <ItemGroup>

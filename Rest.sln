@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FAFAC2AB-3A5
 		src\Directory.Build.props = src\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnMango.Rest", "src\UnMango.Rest\UnMango.Rest.csproj", "{E01C4401-73EB-4A96-A682-56B965B0E80F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnMango.Rest.Backup", "src\UnMango.Rest.Backup\UnMango.Rest.Backup.csproj", "{E01C4401-73EB-4A96-A682-56B965B0E80F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5FE48B59-1B91-4735-A70B-7A21A2B8ED13}"
 	ProjectSection(SolutionItems) = preProject

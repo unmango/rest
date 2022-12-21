@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnMango.Rest\UnMango.Rest.csproj" />
+    <ProjectReference Include="..\UnMango.Rest.Backup\UnMango.Rest.Backup.csproj" />
   </ItemGroup>
 
 </Project>
