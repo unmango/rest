@@ -1,28 +1,9 @@
 <Project>
-  <PropertyGroup>
-    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
 
-    <Authors>UnstoppableMango</Authors>
-    <Product>UnMango.Rest</Product>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageProjectUrl>https://github.com/unmango/rest</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/unmango/rest</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <DebugType>portable</DebugType>
-    <IsPackable>false</IsPackable>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>true</IncludeSource>
-    <NoPackageAnalysis>true</NoPackageAnalysis>
-    <LangVersion>latest</LangVersion>
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>Nullable</WarningsAsErrors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(IsPackable)' == 'true' ">
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <!-- Warnings and errors - From: https://github.com/aspnet/AspNetCore/blob/d7ae0e5d9adf253e57ea351ce5af83bb1ab84a77/Directory.Build.props#L44 -->
@@ -44,4 +25,5 @@
   <ItemGroup>
     <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
   </ItemGroup>
+
 </Project>
