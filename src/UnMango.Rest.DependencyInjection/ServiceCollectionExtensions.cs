@@ -1,9 +1,8 @@
 ﻿using System;
-using UnMango.Rest;
-using UnMango.Rest.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using UnMango.Rest.Internal;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace UnMango.Rest.DependencyInjection
 {
     /// <summary>
     /// Extension methods for <see cref="IServiceCollection"/>.

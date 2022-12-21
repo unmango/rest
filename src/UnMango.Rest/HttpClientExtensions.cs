@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using UnMango.Rest.Internal;
-using UnMango.Rest.Serialization;
 
 namespace UnMango.Rest
 {
