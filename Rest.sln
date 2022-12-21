@@ -23,11 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependabot", "dependabot", "{F64FE199-D0C0-495A-9515-2A244FD5275F}"
-	ProjectSection(SolutionItems) = preProject
-		.dependabot\config.yml = .dependabot\config.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A9BF0BAF-3CB3-46CB-92BE-F8D963ACA8CA}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
@@ -42,6 +37,17 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnMango.Rest.DependencyInjection", "src\UnMango.Rest.DependencyInjection\UnMango.Rest.DependencyInjection.csproj", "{4DD6243D-F73F-488F-A5E9-195D695101B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnMango.Rest.Abstractions", "src\UnMango.Rest.Abstractions\UnMango.Rest.Abstractions.csproj", "{FD615967-3C36-4BC6-86AD-7A255F190313}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{FD6650EB-936B-46F4-9354-DA82B70A0F5C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{339D3EF6-06B2-4B1F-ACCE-ABD34B22F3D8}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pr.yml = .github\workflows\pr.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +116,7 @@ Global
 		{20042E2D-5280-4B3F-B439-4F5D0160AF12} = {5FE48B59-1B91-4735-A70B-7A21A2B8ED13}
 		{4DD6243D-F73F-488F-A5E9-195D695101B2} = {FAFAC2AB-3A52-447C-B3EC-A4A975A6812E}
 		{FD615967-3C36-4BC6-86AD-7A255F190313} = {FAFAC2AB-3A52-447C-B3EC-A4A975A6812E}
+		{339D3EF6-06B2-4B1F-ACCE-ABD34B22F3D8} = {FD6650EB-936B-46F4-9354-DA82B70A0F5C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30E682B4-7CC0-48FF-AAB9-A9CFAD3C2059}
