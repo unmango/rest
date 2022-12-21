@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnMango.Rest", "src\UnMango
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5FE48B59-1B91-4735-A70B-7A21A2B8ED13}"
 	ProjectSection(SolutionItems) = preProject
-		xunit.runner.json = xunit.runner.json
+		xunit.runner.json = test\xunit.runner.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnMango.Rest.Tests", "test\UnMango.Rest.Tests\UnMango.Rest.Tests.csproj", "{20042E2D-5280-4B3F-B439-4F5D0160AF12}"
