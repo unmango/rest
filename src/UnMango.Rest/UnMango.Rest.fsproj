@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="packages.lock.json" />
+    <Compile Include="RestRequest.fs" />
+    <Compile Include="Rest.fs" />
+    <Compile Include="RestClient.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnMango.Rest.Abstractions\UnMango.Rest.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
