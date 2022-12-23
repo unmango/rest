@@ -8,15 +8,12 @@ namespace UnMango.Rest.Internal
 {
     internal class RestClient : IRestClient
     {
-        public RestClient(HttpClient client, ISerializerCollection serializers)
+        public RestClient(HttpClient client)
         {
             HttpClient = client ?? throw new ArgumentNullException(nameof(client));
-            Serializers = serializers ?? throw new ArgumentNullException(nameof(serializers));
         }
 
         public HttpClient HttpClient { get; }
-        
-        public ISerializerCollection Serializers { get; }
         
         public Task SendAsync(IRestRequest request, CancellationToken cancellationToken = default)
         {

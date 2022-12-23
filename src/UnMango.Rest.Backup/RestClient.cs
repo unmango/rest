@@ -19,12 +19,11 @@ namespace UnMango.Rest
         /// <param name="serializers"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IRestClient Create(HttpClient client, ISerializerCollection? serializers = null)
+        public static IRestClient Create(HttpClient client)
         {
             if (client == null) throw new ArgumentNullException(nameof(client));
-            serializers ??= SerializerCollection.Instance;
             
-            return new InternalRestClient(client, serializers);
+            return new InternalRestClient(client);
         }
     }
 }

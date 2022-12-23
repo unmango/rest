@@ -11,15 +11,15 @@ namespace UnMango.Rest.Serialization
     public class Utf8JsonSerializer : ISerializer
     {
         /// <inheritdoc />
-        public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+        public ValueTask<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
         {
-            return JsonSerializer.DeserializeAsync<T>(stream);
+            return new(JsonSerializer.DeserializeAsync<T>(stream));
         }
 
         /// <inheritdoc />
-        public Task SerializeAsync<T>(T value, Stream stream, CancellationToken cancellationToken = default)
+        public ValueTask SerializeAsync<T>(T value, Stream stream, CancellationToken cancellationToken = default)
         {
-            return JsonSerializer.SerializeAsync(stream, value);
+            return new(JsonSerializer.SerializeAsync(stream, value));
         }
     }
 }

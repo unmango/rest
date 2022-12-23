@@ -42,7 +42,7 @@ namespace UnMango.Rest.Serialization
         /// <exception cref="ArgumentNullException">
         /// Thrown when <paramref name="serializer"/> or <paramref name="reader"/> are null.
         /// </exception>
-        public static Task<T> DeserializeAsync<T>(
+        public static ValueTask<T> DeserializeAsync<T>(
             this ISerializer serializer,
             PipeReader reader,
             CancellationToken cancellationToken = default)
@@ -125,7 +125,7 @@ namespace UnMango.Rest.Serialization
         /// <exception cref="ArgumentNullException">
         /// Thrown when <paramref name="serializer"/> or <paramref name="writer"/> are null.
         /// </exception>
-        public static Task SerializeAsync<T>(
+        public static ValueTask SerializeAsync<T>(
             this ISerializer serializer,
             T value,
             PipeWriter writer,

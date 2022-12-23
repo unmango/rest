@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using JetBrains.Annotations;
 
 namespace UnMango.Rest
 {
     /// <summary>
     /// A REST request abstraction.
     /// </summary>
+    [PublicAPI]
     public interface IRestRequest
     {
         /// <summary>

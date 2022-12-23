@@ -25,7 +25,7 @@ namespace UnMango.Rest.Internal
             var client = new HttpClient();
             var options = _optionsMonitor.Get(name);
 
-            return new RestClient(client, options.ClientSerializers[name]);
+            return new RestClient(client);
         }
     }
 }
