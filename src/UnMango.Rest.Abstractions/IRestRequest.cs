@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 namespace UnMango.Rest
@@ -24,5 +25,7 @@ namespace UnMango.Rest
         /// Gets the query parameters for the request.
         /// </summary>
         IReadOnlyDictionary<string, string> QueryParameters { get; }
+
+        TaskAwaiter<IRestResponse> GetAwaiter();
     }
 }

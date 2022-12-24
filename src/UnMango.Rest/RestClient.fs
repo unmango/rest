@@ -1,6 +1,8 @@
 namespace UnMango.Rest
 
-type RestClient() =
+open System.Net.Http
+
+type RestClient(client: HttpClient) =
     interface IRestClient with
         member this.SendAsync(request, cancellationToken) = failwith "todo"
-        member this.HttpClient = failwith "todo"
+        member this.HttpClient = client

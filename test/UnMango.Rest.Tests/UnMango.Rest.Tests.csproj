@@ -13,12 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\UnMango.Rest\UnMango.Rest.fsproj" />
     <ProjectReference Include="..\..\src\UnMango.Rest.Abstractions\UnMango.Rest.Abstractions.csproj" />
-    <ProjectReference Include="..\..\src\UnMango.Rest.Backup\UnMango.Rest.Backup.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="..\xunit.runner.json" Link="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Internal" />
   </ItemGroup>
 
 </Project>

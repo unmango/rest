@@ -15,6 +15,6 @@ namespace UnMango.Rest
         /// </summary>
         HttpClient HttpClient { get; }
 
-        Task SendAsync(IRestRequest request, CancellationToken cancellationToken = default);
+        Task<IRestResponse> SendAsync(IRestRequest request, CancellationToken cancellationToken = default);
     }
 }

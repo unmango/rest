@@ -7,9 +7,12 @@
 
   <ItemGroup>
     <None Include="packages.lock.json" />
+    <Compile Include="Util.fs" />
+    <Compile Include="RestClient.fs" />
     <Compile Include="RestRequest.fs" />
     <Compile Include="Rest.fs" />
-    <Compile Include="RestClient.fs" />
+    <Compile Include="HttpClientExtensions.fs" />
+    <Compile Include="RestRequestExtensions.fs" />
   </ItemGroup>
 
   <ItemGroup>

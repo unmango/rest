@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Moq;
 using Xunit;
 
@@ -12,75 +13,11 @@ namespace UnMango.Rest.Tests
         private readonly Mock<IRestClient> _client = new Mock<IRestClient>();
 
         [Fact]
-        public void ClientCtor_InitializesQueryParams()
+        public async Task Sandbox()
         {
-            var request = new RestRequest(_client.Object);
+            var temp = RestRequest.Create(new HttpClient());
 
-            Assert.NotNull(request.QueryParameters);
-            Assert.Empty(request.QueryParameters);
-        }
-
-        [Fact]
-        public void ClientCtor_ThrowsWhenClientIsNull()
-        {
-            Assert.Throws<ArgumentNullException>(() => new RestRequest(null!));
-        }
-
-        [Fact]
-        public void ClientMethodCtor_InitializesMethod()
-        {
-            var request = new RestRequest(_client.Object, HttpMethod.Get);
-
-            Assert.NotNull(request.Method);
-        }
-
-        [Fact]
-        public void ClientMethodCtor_InitializesQueryParams()
-        {
-            var request = new RestRequest(_client.Object, HttpMethod.Get);
-
-            Assert.NotNull(request.QueryParameters);
-            Assert.Empty(request.QueryParameters);
-        }
-
-        [Fact]
-        public void ClientMethodCtor_ThrowsWhenClientIsNull()
-        {
-            Assert.Throws<ArgumentNullException>(() => new RestRequest(null!, HttpMethod.Get));
-        }
-
-        [Fact]
-        public void ClientMethodParamCtor_InitializesQueryParams()
-        {
-            const string key = "key", value = "value";
-            var query = new List<KeyValuePair<string, string>> { new KeyValuePair<string, string>(key, value) };
-
-            var request = new RestRequest(_client.Object, HttpMethod.Get, query);
-
-            Assert.NotNull(request.QueryParameters);
-            Assert.Contains(
-                request.QueryParameters,
-                x => x is { Key: key, Value: value });
-        }
-
-        [Fact]
-        public void ClientMethodParamCtor_InitializesMethod()
-        {
-            var request = new RestRequest(_client.Object, HttpMethod.Get, new Dictionary<string, string>());
-
-            Assert.NotNull(request.Method);
-        }
-
-        [Fact]
-        public void ClientMethodParamCtor_ThrowsWhenClientIsNull()
-        {
-            Assert.Throws<ArgumentNullException>(() => new RestRequest(null!, HttpMethod.Get, new Dictionary<string, string>()));
-        }
-
-        [Fact]
-        public void ClientMethodParamCtor_ThrowsWhenParamsAreNull()
-        {
-            Assert.Throws<ArgumentNullException>(() => new RestRequest(_client.Object, HttpMethod.Get, null!));
+            var test = await temp;
         }
     }
 }
