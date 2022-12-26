@@ -14,13 +14,14 @@ type RestRequest<'B, 'R> =
 
     member this.GetAwaiter() =
         match this.CancellationToken with
-        | Some token -> this.Client.SendAsync(this, token).GetAwaiter()
-        | None -> this.Client.SendAsync(this).GetAwaiter()
+        | Some token -> this.ExecuteAsync(token).GetAwaiter()
+        | None -> this.ExecuteAsync().GetAwaiter()
 
     interface IRestRequest with
         member this.Client = this.Client
         member this.Method = this.Method |> Option.get
         member this.QueryParameters = this.QueryParameters
+        member this.Uri = this.Uri |> Option.get
         member this.GetAwaiter() = this.GetAwaiter()
 
 module RestRequest =
