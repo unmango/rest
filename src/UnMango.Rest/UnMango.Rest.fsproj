@@ -8,7 +8,8 @@
   <ItemGroup>
     <None Include="packages.lock.json" />
     <Compile Include="Util.fs" />
-    <Compile Include="SystemTextJsonSerializer.fs" />
+    <Compile Include="Serialization\SystemTextJsonSerializer.fs" />
+    <Compile Include="Serialization\DefaultSerializerCollection.fs" />
     <Compile Include="RestResponse.fs" />
     <Compile Include="RestClient.fs" />
     <Compile Include="RestRequest.fs" />

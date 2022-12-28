@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using UnMango.Rest.Serialization;
 
 namespace UnMango.Rest;
 
@@ -12,6 +13,15 @@ public interface IRestClient
     /// Gets the <see cref="HttpClient"/> used by the <see cref="IRestClient"/>.
     /// </summary>
     HttpClient HttpClient { get; }
+    
+    /// <summary>
+    /// Gets collection of <see cref="ISerializer"/>s used by the <see cref="IRestClient"/>.
+    /// </summary>
+    ISerializerCollection Serializers { get; }
+
+    Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request, CancellationToken cancellationToken = default);
+
+    Task<TResponse> PostAsync<TRequest, TResponse>(Uri uri, TRequest request, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Sends an <see cref="IRestRequest"/> asynchronously and returns the <see cref="IRestResponse"/>.
